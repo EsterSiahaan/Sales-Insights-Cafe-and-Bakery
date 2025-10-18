@@ -18,3 +18,13 @@ Database ini berisi 4 tabel utama:
 - customers: Informasi pelanggan
 - markets: Lokasi & channel penjualan
 - transactions: Catatan setiap transaksi penjualan
+
+  ### Folder Explanation
+
+- | Folder                        | Isi                | Keterangan                                     |
+| ------------------------------- | ------------------ | ---------------------------------------------- |
+| `datasets/`                     | Berisi file `.csv` | Data mentah produk, pelanggan, transaksi       |
+| `scripts/`                      | Berisi file `.sql` | Script untuk membuat dan menganalisis database |
+| `README.md`                     | Dokumentasi utama  | Penjelasan project dan cara menjalankan        |
+| `tableau_dashboard_preview.png` | (Opsional)         | Screenshot visualisasi di Tableau              |
+
