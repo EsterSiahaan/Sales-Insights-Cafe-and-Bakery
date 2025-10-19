@@ -1,4 +1,4 @@
-# Sales Insights Cafe and Bakery-
+# 📊  Sales Insights Cafe and Bakery-
 This repository contains datasets, scripts, and documentation for storing, managing, and analyzing company sales data.
 
 Project ini bertujuan untuk membangun dan menganalisis database penjualan Café & Bakery menggunakan PostgreSQL, dengan analisis data yang dapat dihubungkan ke Tableau Public untuk visualisasi.
@@ -99,7 +99,7 @@ INSERT INTO transactions(order_date, product_code, customer_code, market_code, q
 ('2024-03-12','P004','C004','M001',1,20000,10000,50.0),
 ('2024-03-30','P005','C005','M002',6,72000,36000,50.0);
  ```
-un Analysis Queries
+#### Run Analysis Queries
 
 Gunakan scripts/analysis_queries.sql, berisi contoh analisis:
 
@@ -119,4 +119,22 @@ SELECT TO_CHAR(order_date, 'YYYY-MM') AS bulan, SUM(profit) AS total_profit
 FROM transactions
 GROUP BY TO_CHAR(order_date, 'YYYY-MM')
 ORDER BY bulan;
+```
+c. Average Margin per Category
+```bash
+SELECT p.category, ROUND(AVG(t.profit_margin),2) AS avg_margin
+FROM transactions t
+JOIN products p ON p.product_code = t.product_code
+GROUP BY p.category
+ORDER BY avg_margin DESC;
+```
+
+d. Top 5 Customers
+```bash
+SELECT c.customer_name, SUM(t.total_sales) AS total_spent
+FROM transactions t
+JOIN customers c ON c.customer_code = t.customer_code
+GROUP BY c.customer_name
+ORDER BY total_spent DESC
+LIMIT 5;
 ```
