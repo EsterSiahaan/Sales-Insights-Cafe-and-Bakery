@@ -69,3 +69,54 @@ CREATE TABLE transactions (
   profit_margin NUMERIC(5,2)
 );
  ```
+
+#### Insert Sample Data
+
+ ```bash
+INSERT INTO products VALUES
+('P001','Croissant','Bakery',7000,15000),
+('P002','Chocolate Cake','Dessert',12000,25000),
+('P003','Iced Coffee','Beverage',8000,18000),
+('P004','Latte','Beverage',10000,20000),
+('P005','Donut','Snack',6000,12000);
+
+INSERT INTO customers VALUES
+('C001','Andi','Male','Medan','2023-01-10'),
+('C002','Budi','Male','Siantar','2023-02-12'),
+('C003','Sinta','Female','Medan','2023-03-05'),
+('C004','Rina','Female','Parapat','2023-04-20'),
+('C005','Tono','Male','Siantar','2023-05-01');
+
+INSERT INTO markets VALUES
+('M001','Café Downtown','Offline'),
+('M002','Café Online','Online'),
+('M003','Café Express','Offline');
+
+INSERT INTO transactions(order_date, product_code, customer_code, market_code, qty, total_sales, profit, profit_margin) VALUES
+('2024-01-10','P001','C001','M001',3,45000,24000,53.3),
+('2024-01-15','P002','C002','M002',2,50000,26000,52.0),
+('2024-02-01','P003','C003','M003',4,72000,36000,50.0),
+('2024-03-12','P004','C004','M001',1,20000,10000,50.0),
+('2024-03-30','P005','C005','M002',6,72000,36000,50.0);
+ ```
+un Analysis Queries
+
+Gunakan scripts/analysis_queries.sql, berisi contoh analisis:
+
+a. Total Sales per Product
+ ```bash
+SELECT p.product_name, SUM(t.qty) AS total_qty, SUM(t.total_sales) AS total_sales
+FROM transactions t
+JOIN products p ON p.product_code = t.product_code
+GROUP BY p.product_name
+ORDER BY total_sales DESC;
+```
+
+b. Monthly Profit Trend
+s per Product
+ ```bash
+SELECT TO_CHAR(order_date, 'YYYY-MM') AS bulan, SUM(profit) AS total_profit
+FROM transactions
+GROUP BY TO_CHAR(order_date, 'YYYY-MM')
+ORDER BY bulan;
+```
