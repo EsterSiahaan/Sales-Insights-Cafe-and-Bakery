@@ -137,6 +137,5 @@ ORDER BY total_spent DESC
 LIMIT 5;
 ```
 Credit: 
-
 Proyek ini dibuat sebagai simulasi analisis data penjualan pada bisnis Café & Bakery. Data dan struktur database dikembangkan dengan bantuan Artificial Intelligence (AI) melalui ChatGPT (by OpenAI) untuk tujuan pembelajaran dan portofolio.
 
