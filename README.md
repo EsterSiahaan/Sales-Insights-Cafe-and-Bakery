@@ -1,5 +1,4 @@
 # 📊  Sales Insights Cafe and Bakery-
-This repository contains datasets, scripts, and documentation for storing, managing, and analyzing company sales data.
 
 Project ini bertujuan untuk membangun dan menganalisis database penjualan Café & Bakery menggunakan PostgreSQL, dengan analisis data yang dapat dihubungkan ke Tableau Public untuk visualisasi.
 
@@ -112,8 +111,7 @@ GROUP BY p.product_name
 ORDER BY total_sales DESC;
 ```
 
-b. Monthly Profit Trend
-s per Product
+b. Monthly Profit Trends per Product
  ```bash
 SELECT TO_CHAR(order_date, 'YYYY-MM') AS bulan, SUM(profit) AS total_profit
 FROM transactions
@@ -138,3 +136,6 @@ GROUP BY c.customer_name
 ORDER BY total_spent DESC
 LIMIT 5;
 ```
+Credit: 
+Proyek ini dibuat sebagai simulasi analisis data penjualan pada bisnis Café & Bakery. Data dan struktur database dikembangkan dengan bantuan Artificial Intelligence (AI) melalui ChatGPT (by OpenAI) untuk tujuan pembelajaran dan portofolio.
+
